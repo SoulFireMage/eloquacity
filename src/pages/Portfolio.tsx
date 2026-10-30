@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'preact/hooks';
 import { CadenceStrip } from '../components/CadenceStrip';
+import { KIND_LABEL } from '../data/exercises';
 import { analyse } from '../lib/cadence';
 import type { Piece } from '../lib/types';
 import { navigate } from '../state/router';
 import { deletePiece, telemetry } from '../state/store';
-import { NotesView } from './FreeDesk';
+import { NotesView } from '../components/Judging';
 
-const KIND_LABEL: Record<Piece['kind'], string> = { free_desk: 'Free Desk' };
 
 function openAtDesk(p: Piece) {
   try {

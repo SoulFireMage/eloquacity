@@ -1,6 +1,7 @@
 import { useState } from 'preact/hooks';
 import { spreadWord } from '../components/CadenceStrip';
-import type { Piece } from '../lib/types';
+import { KIND_LABEL } from '../data/exercises';
+import type { ExerciseKind, Piece } from '../lib/types';
 import { telemetry } from '../state/store';
 
 interface Point {
@@ -76,6 +77,33 @@ export function Telemetry() {
           <div><dt>Average spread</dt><dd>{desk.length ? spreadWord(avg(desk.map((p) => p.cadence.cv))) : '—'}</dd></div>
         </dl>
       </section>
+
+      {sessions > 0 && (
+        <section class="panel">
+          <h2>Practice by exercise</h2>
+          <p class="muted small">How often you’ve worked each one, and how many of those sessions had AI notes or an honest self-check. (The full Range Map arrives with the polish phase.)</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Exercise</th><th class="num">Sessions</th><th class="num">AI notes</th><th class="num">Self-check</th><th>Last</th></tr></thead>
+              <tbody>
+                {(Object.keys(KIND_LABEL) as ExerciseKind[]).map((k) => {
+                  const rs = t.practice_log.filter((r) => r.exercise === k);
+                  if (!rs.length) return null;
+                  return (
+                    <tr>
+                      <td>{KIND_LABEL[k]}</td>
+                      <td class="num">{rs.length}</td>
+                      <td class="num">{rs.filter((r) => r.judged === 'ai').length}</td>
+                      <td class="num">{rs.filter((r) => r.judged === 'self').length}</td>
+                      <td>{new Date(rs[rs.length - 1].date).toLocaleDateString()}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
 
       <section class="panel">
         <h2>Cadence trends</h2>

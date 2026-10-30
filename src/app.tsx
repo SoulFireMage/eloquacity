@@ -3,12 +3,19 @@ import { route } from './state/router';
 import { profile, settings, syncState } from './state/store';
 import { Home } from './pages/Home';
 import { FreeDesk } from './pages/FreeDesk';
+import { Prose } from './pages/Prose';
+import { Shapeshifter } from './pages/Shapeshifter';
+import { Ladders } from './pages/Ladders';
+import { RegisterDial } from './pages/RegisterDial';
+import { Imitation } from './pages/Imitation';
+import { Restore } from './pages/Restore';
 import { Portfolio } from './pages/Portfolio';
 import { Telemetry } from './pages/Telemetry';
 import { SettingsPage } from './pages/Settings';
 import { Account } from './pages/Account';
 
 const NAV = [
+  ['/prose', 'Prose'],
   ['/desk', 'Free Desk'],
   ['/portfolio', 'Portfolio'],
   ['/telemetry', 'Telemetry'],
@@ -19,6 +26,12 @@ function Page() {
   const path = route.value;
   if (path === '/') return <Home />;
   if (path === '/desk') return <FreeDesk />;
+  if (path === '/prose') return <Prose />;
+  if (path === '/prose/shapeshifter') return <Shapeshifter />;
+  if (path === '/prose/ladders') return <Ladders />;
+  if (path === '/prose/dial') return <RegisterDial />;
+  if (path === '/prose/imitation') return <Imitation />;
+  if (path === '/prose/restore') return <Restore />;
   if (path === '/portfolio') return <Portfolio />;
   if (path === '/telemetry') return <Telemetry />;
   if (path === '/settings') return <SettingsPage />;

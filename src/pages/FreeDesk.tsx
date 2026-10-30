@@ -2,10 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { CadenceStrip } from '../components/CadenceStrip';
 import { Busy, HowTo, SelfCheck } from '../components/Bits';
 import { analyse, snapshot } from '../lib/cadence';
-import { AIMS, aimText, judgePiece, quoteFound, rewriteOnRequest, SELF_CHECK, type AimId } from '../lib/judges';
+import { NotesView } from '../components/Judging';
+import { AIMS, aimText, judgePiece, rewriteOnRequest, SELF_CHECK, type AimId } from '../lib/judges';
 import { errorMessage } from '../lib/cloud';
 import { newId } from '../lib/telemetry';
-import type { JudgeNotes } from '../lib/types';
+import type { JudgeNotes, ParaphraseVerdict } from '../lib/types';
 import { apiKey, logPractice, savePiece, settings, storeTranscript, telemetry, updatePiece } from '../state/store';
 
 const DRAFT_KEY = 'eq.desk_draft.v1';
@@ -102,9 +103,9 @@ export function FreeDesk() {
     }
   };
 
-  const markParaphrase = (i: number, matched: boolean) => {
+  const setVerdict = (i: number, verdict: ParaphraseVerdict) => {
     if (!notes) return;
-    const next = { ...notes, paraphrases: notes.paraphrases.map((p, j) => (j === i ? { ...p, matched } : p)) };
+    const next = { ...notes, paraphrases: notes.paraphrases.map((p, j) => (j === i ? { ...p, verdict, matched: undefined } : p)) };
     setNotes(next);
     if (saved && !dirty) updatePiece(saved.id, { notes: next });
   };
@@ -195,7 +196,7 @@ export function FreeDesk() {
         )}
         {busy === 'notes' && <Busy label="Reading…" />}
         {error && <div class="notice bad">{error}</div>}
-        {notes && <NotesView notes={notes} text={d.text} onMark={markParaphrase} />}
+        {notes && <NotesView notes={notes} text={d.text} onVerdict={setVerdict} />}
         {notes && (
           <div class="rewrite">
             {!rewrite && (
@@ -221,49 +222,3 @@ const untitled = (text: string) => {
   const first = text.trim().split(/\s+/).slice(0, 6).join(' ');
   return first ? `${first}…` : 'Untitled';
 };
-
-const ANSWER: Record<string, string> = { yes: '✓', partly: '◐', no: '✗' };
-
-export function NotesView({ notes, text, onMark }: { notes: JudgeNotes; text: string; onMark?: (i: number, matched: boolean) => void }) {
-  return (
-    <div class="notes">
-      <p class="aim-note"><span class="label">Against the aim</span>{notes.aim_note}</p>
-      <div class="grid grid-2">
-        <div class="quote-card good">
-          <span class="label">Strongest phrase</span>
-          <blockquote>{notes.strongest.quote}</blockquote>
-          <p>{notes.strongest.why}</p>
-          {!quoteFound(notes.strongest.quote, text) && <small class="muted">(No longer in your text.)</small>}
-        </div>
-        <div class="quote-card weak">
-          <span class="label">Weakest phrase</span>
-          <blockquote>{notes.weakest.quote}</blockquote>
-          <p>{notes.weakest.why}</p>
-          {!quoteFound(notes.weakest.quote, text) && <small class="muted">(No longer in your text.)</small>}
-        </div>
-      </div>
-
-      <h3>Did it read as you meant?</h3>
-      <p class="muted small">The model paraphrased your longest sentences after one reading. If a paraphrase is wrong, that sentence didn’t carry your meaning; if it’s right, the sentence parsed, however long it is.</p>
-      {notes.paraphrases.map((p, i) => (
-        <div class="paraphrase">
-          <p class="orig">{p.sentence}</p>
-          <p class="para"><span class="label">Read as</span>{p.paraphrase}</p>
-          {onMark && (
-            <div class="btn-row tight">
-              <button aria-pressed={p.matched === true} onClick={() => onMark(i, true)}>Yes, that’s what I meant</button>
-              <button aria-pressed={p.matched === false} onClick={() => onMark(i, false)}>No, it misread me</button>
-            </div>
-          )}
-          {p.matched === false && <p class="down small">Then this sentence is unclear on a first reading. Compare the paraphrase with your meaning: where they part is where the sentence loses its reader.</p>}
-          {p.matched === true && <p class="up small">It parsed.</p>}
-        </div>
-      ))}
-
-      <ul class="checks">
-        {notes.checklist.map((c) => <li class={`ans-${c.answer}`}><span class="mark" aria-label={c.answer}>{ANSWER[c.answer]}</span> {c.item}</li>)}
-      </ul>
-      <p class="muted small">Notes from {notes.model}, judged against: {notes.aim}</p>
-    </div>
-  );
-}
