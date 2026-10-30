@@ -206,3 +206,10 @@ export const snapshot = (c: Cadence): CadenceSnapshot => ({
   cv: Math.round(c.cv * 100) / 100,
   longest_run: runLength(c.monotony),
 });
+
+/** A cadence made from bare lengths (no text), for drawing a target shape as ghost notes. */
+export function sketchCadence(lengths: number[]): Cadence {
+  const c = analyse('');
+  const sentences: SentenceShape[] = lengths.map((length, index) => ({ text: '', start: 0, end: 0, index, length, breaths: [], opener: '' }));
+  return { ...c, sentences, longest: Math.max(0, ...lengths), shortest: lengths.length ? Math.min(...lengths) : 0 };
+}

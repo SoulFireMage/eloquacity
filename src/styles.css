@@ -286,3 +286,57 @@ a.card:hover { border-color: var(--ink-3); }
   .rhythm dd { font-size: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* ── Prose exercises ───────────────────── */
+.eyebrow a { color: inherit; text-decoration: none; }
+.eyebrow a:hover { text-decoration: underline; }
+.deal-row { display: grid; gap: 14px 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.deal-big { font-family: var(--display); font-size: 1.55rem; font-weight: 600; line-height: 1.2; margin: 0 0 4px; }
+.desk-short .desk-text { min-height: 20vh; }
+.desk-short { margin-bottom: 18px; }
+.rung-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; align-items: baseline; margin-bottom: 6px; }
+.rung-count { font-size: 0.88rem; font-variant-numeric: lining-nums; }
+.rung textarea { min-height: 72px; }
+.wordbar { position: relative; height: 6px; margin-top: 10px; background: var(--panel-2); border-radius: 3px; }
+.wordbar .range { position: absolute; top: 0; bottom: 0; background: var(--staff); border-radius: 3px; }
+.wordbar .you { position: absolute; top: -4px; width: 2px; height: 14px; margin-left: -1px; background: var(--rubric); }
+.source-para { font-size: 1.05rem; line-height: 1.75; max-width: 66ch; }
+.dial { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin: 6px 0 8px; }
+.dial-step { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 4px; text-align: center; font-size: 0.85rem; line-height: 1.2; }
+.dial-step .dial-n { font-family: var(--display); font-size: 1.5rem; font-weight: 600; font-variant-numeric: lining-nums; }
+.dial-step[aria-pressed='true'] { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.dial-step.baseline { border: 1px dashed var(--rule); border-radius: var(--radius); color: var(--ink-3); }
+.dial-step.baseline small { font-size: 0.72rem; }
+.dial-desk .label { margin-top: 0; }
+.dial-notes { border-top: 1px solid var(--rule); padding-top: 14px; }
+.passage { margin: 0 0 6px; }
+.passage blockquote { margin: 4px 0 8px; font-size: 1.04rem; line-height: 1.75; font-style: italic; color: var(--ink-2); max-width: 70ch; }
+.passage figcaption { font-size: 0.85rem; color: var(--ink-3); }
+.ed-note { font-style: italic; }
+.staves { display: block; margin: 4px 0; }
+.stave { stroke: var(--ink); stroke-width: 2; stroke-linecap: round; }
+.stave-master .stave { stroke: var(--ink-3); }
+.stave-end { fill: var(--ink); }
+.stave-master .stave-end { fill: var(--ink-3); }
+.stave-label { font-family: var(--text); font-size: 12px; fill: var(--ink-3); }
+.pause line { stroke: var(--rubric); stroke-width: 2; stroke-linecap: round; }
+.pause text { font-family: var(--text); font-size: 13px; fill: var(--rubric); }
+.link { stroke: var(--staff); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.link.same { stroke: var(--rubric); stroke-dasharray: none; opacity: 0.6; }
+.checks.inner { margin: 2px 0 8px 2px; }
+.checks > li > .label { margin-top: 6px; }
+.marked { line-height: 2; font-size: 1.02rem; }
+.gap { border-radius: 3px; padding: 0 2px; margin: 0 1px; font-weight: 600; }
+.gap-agree { background: var(--good-soft); color: var(--good); }
+.gap-differ { background: var(--panel-2); color: var(--ink); outline: 1px solid var(--ink-3); }
+.gap-authors { background: var(--rubric-soft); color: var(--rubric); }
+.gap-yours { background: var(--panel-2); color: var(--link); outline: 1px dashed var(--link); }
+.gap-empty { font-style: normal; opacity: 0.8; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 12px; margin: 6px 0 12px; }
+.compare .label { margin-bottom: 4px; }
+@media (max-width: 640px) {
+  .dial { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px; }
+  .dial-step { padding: 8px 2px; font-size: 0.72rem; }
+  .dial-step .dial-n { font-size: 1.2rem; }
+  .deal-big { font-size: 1.3rem; }
+}

@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { analyse, snapshot } from '../src/lib/cadence';
 import { emptyTelemetry, mergeTelemetry, normaliseTelemetry } from '../src/lib/telemetry';
-import { checkNotes, CHECKLIST, pickForParaphrase, quoteFound } from '../src/lib/judges';
+import { checkDial, checkImitation, checkLadder, checkNotes, CHECKLIST, pickForParaphrase, quoteFound } from '../src/lib/judges';
 import { extractJson } from '../src/lib/openrouter';
-import type { Piece } from '../src/lib/types';
+import { verdictOf, type Piece } from '../src/lib/types';
 
 const piece = (id: string, updated_at: string, text = 'Text.'): Piece => ({
   id, date: '2026-01-01T00:00:00.000Z', updated_at, kind: 'free_desk', title: id, text, cadence: snapshot(analyse(text)),
@@ -73,5 +73,37 @@ describe('extractJson', () => {
   it('pulls JSON out of fenced or chatty replies', () => {
     expect(extractJson('Sure!\n```json\n{"a": "}"}\n```')).toEqual({ a: '}' });
     expect(extractJson('Here: {"b": [1, {"c": 2}]} done')).toEqual({ b: [1, { c: 2 }] });
+  });
+});
+
+describe('exercise judge guards', () => {
+  const q = (quote: string) => ({ quote, why: 'Because.' });
+  it('ladder: rung count, answers and quotes from any rung', () => {
+    const rungs = ['The dog waited by the door all day.', 'The old dog waited by the kitchen door until dark.'];
+    const ok = { heart: 'A dog waits.', paraphrase: 'A dog waited.', rungs: rungs.map((_, i) => ({ n: i + 1, alive: 'yes', heart_kept: 'partly', why: 'x' })), strongest: q('until dark'), weakest: q('all day') };
+    expect(checkLadder(ok, rungs)).toBeNull();
+    expect(checkLadder({ ...ok, rungs: ok.rungs.slice(1) }, rungs)).toMatch(/expected 2/);
+    expect(checkLadder({ ...ok, weakest: q('the cat') }, rungs)).toMatch(/not copied/);
+    expect(checkLadder({ ...ok, rungs: [{ ...ok.rungs[0], alive: 'maybe' }, ok.rungs[1]] }, rungs)).toMatch(/alive/);
+  });
+  it('imitation: three shape answers and quotes from the attempt only', () => {
+    const attempt = 'Call it luck, said the gambler, and walked out.';
+    const ok = { clause_order: { answer: 'yes', note: '' }, pauses: { answer: 'partly', note: '' }, weight: { answer: 'no', note: '' }, own_subject: 'yes', paraphrase: 'x', strongest: q('Call it luck'), weakest: q('walked out') };
+    expect(checkImitation(ok, attempt)).toBeNull();
+    expect(checkImitation({ ...ok, strongest: q('Call me Ishmael') }, attempt)).toMatch(/not copied/);
+    expect(checkImitation({ ...ok, weight: { answer: 'yes' } }, attempt)).toMatch(/weight/);
+  });
+  it('dial: one entry per rewrite, quotes checked against their own rewrite', () => {
+    const rewrites = [{ setting: 1, text: 'Market. Seven. Crowds.' }, { setting: 5, text: 'The market blooms like a bruise at dawn.' }];
+    const entry = (n: number, s: string, w: string) => ({ n, register_hit: 'yes', under_control: 'yes', note: '', paraphrase: 'x', strongest: q(s), weakest: q(w) });
+    expect(checkDial({ rewrites: [entry(1, 'Market. Seven', 'Crowds'), entry(2, 'like a bruise', 'at dawn')] }, rewrites)).toBeNull();
+    expect(checkDial({ rewrites: [entry(1, 'like a bruise', 'Crowds'), entry(2, 'like a bruise', 'at dawn')] }, rewrites)).toMatch(/rewrite 1/);
+    expect(checkDial({ rewrites: [entry(1, 'Market', 'Crowds')] }, rewrites)).toMatch(/expected 2/);
+  });
+  it('reads Phase 1 boolean paraphrase marks as verdicts', () => {
+    expect(verdictOf({ sentence: '', paraphrase: '', matched: true })).toBe('matched');
+    expect(verdictOf({ sentence: '', paraphrase: '', matched: false })).toBe('misread');
+    expect(verdictOf({ sentence: '', paraphrase: '', verdict: 'ambiguous', matched: true })).toBe('ambiguous');
+    expect(verdictOf({ sentence: '', paraphrase: '' })).toBeUndefined();
   });
 });

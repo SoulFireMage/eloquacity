@@ -1,0 +1,446 @@
+[
+ {
+  "key": "austen-truth",
+  "gid": 1342,
+  "start": "It is a truth universally acknowledged",
+  "n": 1
+ },
+ {
+  "key": "austen-emma",
+  "gid": 158,
+  "start": "Emma Woodhouse, handsome, clever, and rich",
+  "n": 1
+ },
+ {
+  "key": "austen-elliot",
+  "gid": 105,
+  "start": "Sir Walter Elliot, of Kellynch Hall",
+  "n": 1
+ },
+ {
+  "key": "austen-morland",
+  "gid": 121,
+  "start": "No one who had ever seen Catherine Morland",
+  "n": 2
+ },
+ {
+  "key": "cbronte-walk",
+  "gid": 1260,
+  "start": "There was no possibility of taking a walk that day",
+  "n": 3
+ },
+ {
+  "key": "cbronte-married",
+  "gid": 1260,
+  "start": "Reader, I married him",
+  "n": 3
+ },
+ {
+  "key": "ebronte-foliage",
+  "gid": 768,
+  "start": "My love for Linton is like the foliage",
+  "n": 4
+ },
+ {
+  "key": "ebronte-landlord",
+  "gid": 768,
+  "start": "I have just returned from a visit to my landlord",
+  "n": 3
+ },
+ {
+  "key": "dickens-fog",
+  "gid": 1023,
+  "start": "Fog everywhere",
+  "n": 6
+ },
+ {
+  "key": "dickens-times",
+  "gid": 98,
+  "start": "It was the best of times",
+  "n": 1
+ },
+ {
+  "key": "dickens-farbetter",
+  "gid": 98,
+  "start": "“It is a far, far better thing",
+  "n": 2
+ },
+ {
+  "key": "dickens-marsh",
+  "gid": 1400,
+  "start": "Ours was the marsh country",
+  "n": 1
+ },
+ {
+  "key": "dickens-marley",
+  "gid": 46,
+  "start": "MARLEY was dead: to begin with",
+  "n": 4
+ },
+ {
+  "key": "dickens-grindstone",
+  "gid": 46,
+  "start": "Oh! But he was a tight-fisted hand",
+  "n": 4
+ },
+ {
+  "key": "dickens-hero",
+  "gid": 766,
+  "start": "Whether I shall turn out to be the hero",
+  "n": 2
+ },
+ {
+  "key": "dickens-facts",
+  "gid": 786,
+  "start": "NOW, what I want is, Facts",
+  "n": 5
+ },
+ {
+  "key": "eliot-grass",
+  "gid": 145,
+  "start": "If we had a keen vision and feeling",
+  "n": 2
+ },
+ {
+  "key": "eliot-diffusive",
+  "gid": 145,
+  "start": "But the effect of her being on those around her",
+  "n": 1
+ },
+ {
+  "key": "eliot-floss",
+  "gid": 6688,
+  "start": "A wide plain, where the broadening Floss",
+  "n": 1
+ },
+ {
+  "key": "melville-ishmael",
+  "gid": 2701,
+  "start": "Call me Ishmael",
+  "n": 3
+ },
+ {
+  "key": "melville-grim",
+  "gid": 2701,
+  "start": "Whenever I find myself growing grim about the mouth",
+  "n": 2
+ },
+ {
+  "key": "melville-bartleby",
+  "gid": 11231,
+  "start": "At first Bartleby did an extraordinary quantity of writing",
+  "n": 3
+ },
+ {
+  "key": "carroll-alice",
+  "gid": 11,
+  "start": "Alice was beginning to get very tired",
+  "n": 1
+ },
+ {
+  "key": "hawthorne-throng",
+  "gid": 25344,
+  "start": "A throng of bearded men",
+  "n": 1
+ },
+ {
+  "key": "poe-usher",
+  "gid": 2148,
+  "start": "During the whole of a dull, dark, and soundless day",
+  "n": 1
+ },
+ {
+  "key": "poe-telltale",
+  "gid": 2148,
+  "start": "True!—nervous—very, very dreadfully nervous",
+  "n": 4
+ },
+ {
+  "key": "poe-redeath",
+  "gid": 2148,
+  "start": "The \"Red Death\" had long devastated",
+  "n": 3
+ },
+ {
+  "key": "stevenson-utterson",
+  "gid": 43,
+  "start": "Mr. Utterson the lawyer was a man of a rugged countenance",
+  "n": 2
+ },
+ {
+  "key": "stevenson-hyde",
+  "gid": 43,
+  "start": "Mr. Hyde was pale and dwarfish",
+  "end": "Mr. Utterson regarded him."
+ },
+ {
+  "key": "stevenson-squire",
+  "gid": 120,
+  "start": "Squire Trelawney, Dr. Livesey",
+  "end": "the year of grace 17—"
+ },
+ {
+  "key": "conrad-river",
+  "gid": 219,
+  "start": "Going up that river was like traveling back",
+  "n": 4
+ },
+ {
+  "key": "hardy-tess",
+  "gid": 110,
+  "start": "On an evening in the latter part of May",
+  "n": 1
+ },
+ {
+  "key": "hardy-oak",
+  "gid": 107,
+  "start": "When Farmer Oak smiled",
+  "n": 1
+ },
+ {
+  "key": "hardy-egdon",
+  "gid": 122,
+  "start": "A Saturday afternoon in November was approaching",
+  "n": 2
+ },
+ {
+  "key": "kipling-seeonee",
+  "gid": 236,
+  "start": "It was seven o'clock of a very warm evening",
+  "n": 2
+ },
+ {
+  "key": "james-breathless",
+  "gid": 209,
+  "start": "The story had held us, round the fire",
+  "n": 2
+ },
+ {
+  "key": "james-tea",
+  "gid": 2833,
+  "start": "Under certain circumstances there are few hours in life",
+  "n": 2
+ },
+ {
+  "key": "wharton-nilsson",
+  "gid": 541,
+  "start": "On a January evening of the early seventies",
+  "n": 1
+ },
+ {
+  "key": "wharton-selden",
+  "gid": 284,
+  "start": "Selden paused in surprise",
+  "n": 2
+ },
+ {
+  "key": "wharton-frome",
+  "gid": 4517,
+  "start": "I had the story, bit by bit",
+  "n": 1
+ },
+ {
+  "key": "twain-huck",
+  "gid": 76,
+  "start": "You don't know about me without you have read",
+  "end": "mainly he told the truth."
+ },
+ {
+  "key": "twain-river",
+  "gid": 76,
+  "start": "Two or three days and nights went by",
+  "n": 4
+ },
+ {
+  "key": "twain-sunset",
+  "gid": 245,
+  "start": "A broad expanse of the river was turned to blood",
+  "n": 2
+ },
+ {
+  "key": "browne-oblivion",
+  "gid": 586,
+  "start": "But the iniquity of oblivion blindly scattereth her poppy",
+  "n": 2
+ },
+ {
+  "key": "browne-flame",
+  "gid": 586,
+  "start": "Life is a pure flame",
+  "n": 1
+ },
+ {
+  "key": "kjv-beginning",
+  "gid": 10,
+  "start": "In the beginning God created the heaven and the earth",
+  "n": 3
+ },
+ {
+  "key": "kjv-vanity",
+  "gid": 10,
+  "start": "Vanity of vanities, saith the Preacher",
+  "n": 1
+ },
+ {
+  "key": "kjv-season",
+  "gid": 10,
+  "start": "To every thing there is a season",
+  "end": "a time of peace."
+ },
+ {
+  "key": "kjv-wept",
+  "gid": 10,
+  "start": "Jesus wept",
+  "n": 1
+ },
+ {
+  "key": "kjv-charity",
+  "gid": 10,
+  "start": "Though I speak with the tongues of men and of angels",
+  "n": 1
+ },
+ {
+  "key": "gibbon-empire",
+  "gid": 731,
+  "start": "In the second century of the Christian Æra",
+  "n": 2
+ },
+ {
+  "key": "pater-flame",
+  "gid": 2398,
+  "start": "To burn always with this hard, gemlike flame",
+  "n": 2
+ },
+ {
+  "key": "pater-lisa",
+  "gid": 2398,
+  "start": "She is older than the rocks among which she sits",
+  "n": 2
+ },
+ {
+  "key": "dequincey-opium",
+  "gid": 2040,
+  "start": "Oh, just, subtle, and mighty opium!",
+  "n": 1
+ },
+ {
+  "key": "crane-cold",
+  "gid": 73,
+  "start": "The cold passed reluctantly from the earth",
+  "n": 3
+ },
+ {
+  "key": "crane-wafer",
+  "gid": 73,
+  "start": "The red sun was pasted in the sky",
+  "n": 1
+ },
+ {
+  "key": "crane-openboat",
+  "gid": 45524,
+  "start": "None of them knew the colour of the sky",
+  "n": 3
+ },
+ {
+  "key": "london-buck",
+  "gid": 215,
+  "start": "Buck did not read the newspapers",
+  "n": 1
+ },
+ {
+  "key": "defoe-born",
+  "gid": 521,
+  "start": "I was born in the year 1632",
+  "n": 1
+ },
+ {
+  "key": "shelley-dreary",
+  "gid": 84,
+  "start": "It was on a dreary night of November",
+  "n": 3
+ },
+ {
+  "key": "stoker-night",
+  "gid": 345,
+  "start": "“Listen to them",
+  "n": 2
+ },
+ {
+  "key": "wilde-studio",
+  "gid": 174,
+  "start": "The studio was filled with the rich odour of roses",
+  "n": 1
+ },
+ {
+  "key": "joyce-snow",
+  "gid": 2814,
+  "start": "A few light taps upon the pane",
+  "n": 4
+ },
+ {
+  "key": "joyce-swooned",
+  "gid": 2814,
+  "start": "His soul swooned slowly",
+  "n": 1
+ },
+ {
+  "key": "joyce-moocow",
+  "gid": 4217,
+  "start": "Once upon a time and a very good time it was",
+  "n": 1
+ },
+ {
+  "key": "chopin-sea",
+  "gid": 160,
+  "start": "The voice of the sea is seductive",
+  "n": 2
+ },
+ {
+  "key": "doyle-woman",
+  "gid": 1661,
+  "start": "To Sherlock Holmes she is always the woman",
+  "n": 3
+ },
+ {
+  "key": "wells-traveller",
+  "gid": 35,
+  "start": "The Time Traveller (for so it will be convenient",
+  "n": 2
+ },
+ {
+  "key": "anderson-hands",
+  "gid": 416,
+  "start": "Upon the half decayed veranda of a small frame house",
+  "n": 1
+ },
+ {
+  "key": "woolf-lark",
+  "gid": 71865,
+  "start": "What a lark! What a plunge!",
+  "n": 3
+ },
+ {
+  "key": "mansfield-weather",
+  "gid": 1429,
+  "start": "And after all the weather was ideal",
+  "n": 3
+ },
+ {
+  "key": "bierce-bridge",
+  "gid": 13334,
+  "start": "A man stood upon a railroad bridge in northern Alabama",
+  "n": 2
+ },
+ {
+  "key": "ruskin-mark",
+  "gid": 30755,
+  "start": "a multitude of pillars and white domes",
+  "n": 1
+ },
+ {
+  "key": "woolf-flowers",
+  "gid": 71865,
+  "start": "Mrs. Dalloway said she would buy the flowers herself",
+  "n": 1
+ }
+]

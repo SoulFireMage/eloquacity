@@ -2,6 +2,7 @@ import { useMemo } from 'preact/hooks';
 import { CadenceStrip } from '../components/CadenceStrip';
 import { Lenses } from '../components/Bits';
 import { analyse } from '../lib/cadence';
+import { PASSAGES } from '../data/passages';
 import { apiKey, profile, telemetry } from '../state/store';
 
 // Public domain: Charles Dickens, Bleak House (1853), opening of chapter 1. Project Gutenberg #1023.
@@ -23,7 +24,8 @@ export function Home() {
           rambling long ones, and from blunt and vivid to ultraviolet. Not the clear professional middle. Not grammar policing.
         </p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="#/desk">Open the Free Desk</a>
+          <a class="btn btn-primary" href="#/prose">Enter the Prose Wing</a>
+          <a class="btn" href="#/desk">Free Desk</a>
           {t.pieces.length > 0 && <a class="btn" href="#/portfolio">Your portfolio ({t.pieces.length})</a>}
         </div>
       </section>
@@ -47,19 +49,16 @@ export function Home() {
       </section>
 
       <div class="grid grid-2">
-        <a class="card" href="#/desk">
+        <a class="card" href="#/prose">
           <div class="eyebrow">The Prose Wing</div>
-          <h3>The Free Desk</h3>
-          <p class="grow muted">Write anything and watch its cadence. Ask for AI notes judged against your chosen register, not against good taste.</p>
+          <h3>Six exercises</h3>
+          <p class="grow muted">Shapeshifter, Grow and Shrink, the Register Dial, Imitation, Restore the Pause and the Free Desk, with {PASSAGES.length} public-domain masters.</p>
           <span class="card-go">Open →</span>
         </a>
         <div class="card quiet">
           <div class="eyebrow">Being built</div>
-          <h3>Exercises and the Verse Wing</h3>
-          <p class="grow muted">
-            Rhythm targets, grow-and-shrink ladders, the Register Dial, sentence imitation and restoring pauses come next, then metre,
-            rhyme and fixed forms.
-          </p>
+          <h3>The Verse Wing</h3>
+          <p class="grow muted">Metre, rhyme and fixed forms: scansion with a pronouncing dictionary, then sonnets, villanelles and ghazals.</p>
         </div>
       </div>
 

@@ -14,6 +14,16 @@ The full build specification is in [SPEC.md](SPEC.md).
 - **Portfolio** (with before/after versions), **Telemetry** (cadence trends, no prose ratings), **Settings** and **Account**.
 - Optional Skapi accounts on the Forge's project, using Eloquacity's own tables (`eq_telemetry`, `eq_transcripts`, `eq_bank`). The bring-your-own OpenRouter key stays in `localStorage` only.
 
+**Phase 2 (prose exercises)** is built:
+
+- **Shapeshifter:** you're dealt a rhythm target and a subject; the shape is checked exactly, and its ghost sits behind your notes on the strip.
+- **Grow and Shrink:** grow a six-word seed to 60+ words, or cut a master's long sentence down to 6, one sentence per rung, with live word ranges.
+- **The Register Dial:** rewrite a plain paragraph at blunt, brisk, lush or ultraviolet. The judge paraphrases each rewrite *without seeing the source*, and you check whether the meaning survived the dial.
+- **Imitation:** copy a master sentence's shape on your own subject; two staves compare where the pauses fall.
+- **Restore the Pause:** a passage with its internal punctuation removed; put it back, then compare gap by gap with the author's choices. No score.
+- **The passage bank:** 74 public-domain passages, extracted verbatim from Project Gutenberg with their sources (see `tools/passages`).
+- Every paraphrase check now has three answers: it matched, it misread me, or the ambiguity is on purpose.
+
 ## Develop
 
 ```bash

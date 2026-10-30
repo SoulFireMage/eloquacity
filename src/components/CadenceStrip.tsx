@@ -22,7 +22,7 @@ export function spreadWord(cv: number): string {
 
 const fmt = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1));
 
-function useWidth<T extends HTMLElement>(): [preact.RefObject<T | null>, number] {
+export function useWidth<T extends HTMLElement>(): [preact.RefObject<T | null>, number] {
   const ref = useRef<T>(null);
   const [w, setW] = useState(600);
   useEffect(() => {
